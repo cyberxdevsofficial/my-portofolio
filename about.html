@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - DTZ ANUWH OFFICIAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);min-height:100vh;color:white;overflow-x:hidden;}
+body::before{content:"";position:fixed;width:600px;height:600px;background:radial-gradient(circle,#00c6ff,transparent);top:-200px;left:-200px;filter:blur(120px);z-index:-1;animation:float 8s infinite alternate;}
+@keyframes float{from{transform:translate(0,0);}to{transform:translate(200px,200px);}}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);position:sticky;top:0;z-index:1000;}
+.logo{font-weight:800;font-size:20px;}
+.menu{display:flex;gap:25px;}
+.menu a{color:white;text-decoration:none;transition:0.3s;}
+.menu a:hover{color:#00c6ff;}
+.hamburger{display:none;flex-direction:column;cursor:pointer;}
+.hamburger span{height:3px;width:25px;background:white;margin:4px 0;}
+/* Loader */
+#loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);display:flex;justify-content:center;align-items:center;z-index:9999;flex-direction:column;overflow:hidden;transition:all 0.5s ease;}
+.loader-content{text-align:center;color:white;font-family:'Poppins',sans-serif;}
+.loader-content .bot-title{font-size:36px;font-weight:800;margin-bottom:10px;}
+.loader-content .subtitle{font-size:16px;opacity:0.8;margin-bottom:30px;}
+.spinner-container{margin:20px auto;width:50px;height:50px;}
+.spinner{width:50px;height:50px;border:6px solid rgba(255,255,255,0.2);border-top:6px solid #00c6ff;border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.progress-container{width:200px;margin:20px auto;}
+.progress-bar{width:100%;height:8px;background:rgba(255,255,255,0.2);border-radius:4px;overflow:hidden;margin-top:5px;}
+.progress-fill{width:0%;height:100%;background:#00c6ff;border-radius:4px;transition:width 0.3s;}
+.percentage{margin-bottom:5px;}
+.status{margin-top:10px;font-size:14px;opacity:0.8;}
+.footer-info{margin-top:30px;font-size:12px;opacity:0.5;}
+/* About content */
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:100vh;text-align:left;padding:60px;}
+.hero h1{font-size:40px;font-weight:800;margin-bottom:30px;}
+.hero p{font-size:16px;opacity:0.85;margin-bottom:15px;line-height:1.6;max-width:900px;}
+footer{text-align:center;padding:20px;background:rgba(255,255,255,0.05);}
+@media(max-width:768px){.menu{display:none;flex-direction:column;background:#111;padding:20px;position:absolute;right:20px;top:70px;}.menu.active{display:flex;}.hamburger{display:flex;}}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader-wrapper">
+  <div class="loader-content">
+    <h1 class="bot-title">DTZ ANUWH OFFICIAL</h1>
+    <p class="subtitle">About Page of Anuga Senithu</p>
+    <div class="spinner-container"><div class="spinner"></div></div>
+    <div class="progress-container">
+      <div class="percentage" id="percent">0%</div>
+      <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+    </div>
+    <p class="status" id="status-text">Loading...</p>
+    <div class="footer-info"><p>© 2026 - Powered By <br>Anuga Senithu</p></div>
+  </div>
+</div>
+
+<nav>
+<div class="logo">DTZ ANUWH OFFICIAL</div>
+<div class="menu" id="menu">
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/projects">Projects</a>
+<a href="/contact">Contact</a>
+<a href="/freebots">Free Bots</a>
+<a href="/pastpaperdb.html">Past Paper</a>
+</div>
+<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="hero">
+<h1>About Me</h1>
+<p>My real name is Anuga Senithu De Silva. I was born on 2013/01/20. I am passionate about futuristic web design and 3D UI interfaces.</p>
+<p>From a young age, I have loved technology and building small bots for WhatsApp automation.</p>
+<p>I focus on creating premium, ultra-pro web experiences that are responsive, animated, and visually stunning.</p>
+<p>My projects showcase a variety of applications, including AI, mini bots, and portfolio designs.</p>
+<p>I am continuously learning, experimenting, and improving my coding and design skills.</p>
+<p>I enjoy collaborating with other developers and designers on innovative projects.</p>
+<p>My work combines creativity, functionality, and modern 3D UI aesthetics.</p>
+<p>I believe in designing for multiple devices, ensuring performance and accessibility.</p>
+<p>Transparency, user experience, and performance are my key principles.</p>
+<p>Over time, I have developed expertise in HTML, CSS, JS, and 3D animations.</p>
+<p>I am always exploring new libraries and tools to upgrade my web projects.</p>
+<p>I take pride in my work and strive for perfection in every detail.</p>
+<p>My portfolio represents my personal growth and technological journey.</p>
+<p>With each project, I aim to push the boundaries of standard web design.</p>
+<p>Animation, interactivity, and user engagement are central to my designs.</p>
+<p>Designing futuristic UI is my specialty, incorporating subtle 3D and gradient effects.</p>
+<p>I focus on clean, modern, and professional aesthetics across all pages.</p>
+<p>Every project demonstrates my commitment to quality and innovation.</p>
+<p>I am building a name in the developer community as DTZ ANUWH OFFICIAL.</p>
+<p>Continuous improvement and experimentation are part of my philosophy.</p>
+<p>I enjoy mentoring and sharing knowledge about coding and design.</p>
+<p>My designs aim to inspire and engage the audience effectively.</p>
+<p>I experiment with motion graphics, 3D CSS, and interactive elements.</p>
+<p>I combine usability with visual appeal to create lasting impressions.</p>
+<p>I ensure that my websites are fast, responsive, and futuristic.</p>
+<p>Accessibility is also important to me, making my pages usable for all.</p>
+<p>I enjoy creating projects that are both functional and visually striking.</p>
+<p>My passion for tech motivates me to innovate constantly.</p>
+<p>Learning new techniques and integrating them into projects is key to my growth.</p>
+<p>I focus on futuristic design principles, animation, and 3D effects.</p>
+<p>Every project is a learning opportunity to refine my coding and design skills.</p>
+<p>I strive to make each page unique yet consistent with my branding.</p>
+<p>Creativity, functionality, and aesthetics are balanced in my portfolio.</p>
+<p>I am always testing new ideas for web interactions and animations.</p>
+<p>My goal is to create memorable and professional web experiences.</p>
+<p>I love experimenting with gradients, lights, and 3D card effects.</p>
+<p>Collaboration with other developers helps me improve and innovate.</p>
+<p>My portfolio demonstrates both skill and personal style.</p>
+<p>I am committed to creating an ultra-pro, futuristic digital presence.</p>
+</section>
+
+<footer>Designed and Developed by Anuga Senithu</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.getElementById("menu");
+  hamburger.addEventListener("click", ()=>{menu.classList.toggle("active");});
+  let percent = document.getElementById("percent");
+  let fill = document.getElementById("fill");
+  let load = 0;
+  let interval = setInterval(()=>{
+    load++;
+    percent.innerText=load+"%";
+    fill.style.width=load+"%";
+    if(load>=100){clearInterval(interval);document.getElementById("loader-wrapper").style.opacity="0";setTimeout(()=>{document.getElementById("loader-wrapper").style.display="none";},500);}
+  },20);
+});
+</script>
+
+</body>
+</html>
