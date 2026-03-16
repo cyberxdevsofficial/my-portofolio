@@ -40,32 +40,41 @@ footer{text-align:center;padding:20px;background:rgba(255,255,255,0.05);}
 </head>
 <body>
 
-<!-- LOADER -->
+<body>
+
+<!-- LOADER START -->
 <div id="loader-wrapper">
   <div class="loader-content">
     <h1 class="bot-title">DTZ ANUWH OFFICIAL</h1>
-    <p class="subtitle">Projects of Anuga Official</p>
-    <div class="spinner-container"><div class="spinner"></div></div>
+    <p class="subtitle">Projects Page of Anuga Senithu</p>
+    <div class="spinner-container">
+      <div class="spinner"></div>
+    </div>
     <div class="progress-container">
       <div class="percentage" id="percent">0%</div>
-      <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="fill"></div>
+      </div>
     </div>
     <p class="status" id="status-text">Loading...</p>
-    <div class="footer-info"><p>© 2026 - Powered By <br> Anuga Senithu</p></div>
+    <div class="footer-info">
+      <p>© 2026 - Powered By <br> Anuga Senithu</p>
+    </div>
   </div>
 </div>
+<!-- LOADER END -->
 
 <nav>
 <div class="logo">DTZ ANUWH OFFICIAL</div>
 <div class="menu" id="menu">
 <a href="/">Home</a>
-<a href="/about">About</a>
-<a href="/projects">Projects</a>
-<a href="/contact">Contact</a>
+<a href="/about.html">About</a>
+<a href="/projects.html">Projects</a>
+<a href="/contact.html">Contact</a>
 <a href="/freebots.html">Free Bots</a>
 <a href="/pastpaperdb.html">Past Paper</a>
 </div>
-<div class="hamburger" onclick="toggleMenu()">
+<div class="hamburger" id="hamburger">
 <span></span><span></span><span></span>
 </div>
 </nav>
@@ -98,14 +107,20 @@ footer{text-align:center;padding:20px;background:rgba(255,255,255,0.05);}
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded",function(){
-const hamburger=document.getElementById("hamburger");
-const menu=document.getElementById("menu");
-hamburger.addEventListener("click",()=>{menu.classList.toggle("active");});
-let percent=document.getElementById("percent");
-let fill=document.getElementById("fill");
-let load=0;
-let interval=setInterval(()=>{load++;percent.innerText=load+"%";fill.style.width=load+"%";if(load>=100){clearInterval(interval);document.getElementById("loader-wrapper").style.opacity="0";setTimeout(()=>{document.getElementById("loader-wrapper").style.display="none";},500);}},20);
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.getElementById("menu");
+  hamburger.addEventListener("click", ()=>{menu.classList.toggle("active");});
+
+  let percent = document.getElementById("percent");
+  let fill = document.getElementById("fill");
+  let load = 0;
+  let interval = setInterval(()=>{
+    load++;
+    percent.innerText=load+"%";
+    fill.style.width=load+"%";
+    if(load>=100){clearInterval(interval);document.getElementById("loader-wrapper").style.opacity="0";setTimeout(()=>{document.getElementById("loader-wrapper").style.display="none";},500);}
+  },20);
 });
 </script>
 </body>
