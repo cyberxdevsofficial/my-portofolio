@@ -85,21 +85,20 @@ footer{text-align:center;padding:20px;background:rgba(255,255,255,0.05);}
 <div class="project-card">
 <h2>Anuga AI</h2>
 <p>AI Chat Project with image generation and AI Chatting.</p>
-<button onclick="window.open('https://anuga-ai.zone.id')">Visit Project</button>
+<button onclick="window.open('https://anuga-ai.zone.id','_blank')">Visit Project</button>
 </div>
 
 <div class="project-card">
 <h2>Calculator</h2>
 <p>A Mathematical Calculator can solve mathematical equations</p>
-<button onclick="window.open(https://calculator-anugaofc.vercel.app')">Visit Project</button>
+<button onclick="window.open('https://calculator-anugaofc.vercel.app','_blank')">Visit Project</button>
 </div>
 
 <div class="project-card">
 <h2>Calculator</h2>
 <p>A Mathematical Calculator can solve mathematical equations</p>
-<button onclick="window.open(https://calculator-anugaofc.vercel.app')">Visit Project</button>
+<button onclick="window.open('https://calculator-anugaofc.vercel.app','_blank')">Visit Project</button>
 </div>
-
 </section>
 
 <footer>
@@ -121,6 +120,9 @@ document.addEventListener("DOMContentLoaded", function() {
     fill.style.width=load+"%";
     if(load>=100){clearInterval(interval);document.getElementById("loader-wrapper").style.opacity="0";setTimeout(()=>{document.getElementById("loader-wrapper").style.display="none";},500);}
   },20);
+
+  function openProject(url){
+  window.open(url, "_blank");
 });
 </script>
 </body>
