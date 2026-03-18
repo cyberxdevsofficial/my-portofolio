@@ -61,11 +61,9 @@ footer{text-align:center;padding:20px;background:rgba(255,255,255,0.05);margin-t
 <footer>Designed and Developed by Anuga Senithu</footer>
 
 <script>
-
-// --- Your News API Key ---
+// --- Your GNews API Key ---
 const API_KEY = "5f3d574cb131920c2aad991ab3e8ae50";
-
-// Default topics to load
+const MAX_POSTS = 10;
 const DEFAULT_QUERY = "cyber OR tech OR hacker OR AI OR coding";
 
 // Load posts on page load
@@ -79,7 +77,7 @@ async function fetchPosts(query) {
   container.innerHTML = `<h2 style="text-align:center;width:100%;">Loading Posts...</h2>`;
   try {
     const res = await fetch(
-      `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&lang=en&max=20&token=${API_KEY}`
+      `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&lang=en&country=us&max=${MAX_POSTS}&apikey=${API_KEY}`
     );
     const data = await res.json();
     displayPosts(data.articles || []);
@@ -110,10 +108,10 @@ function displayPosts(posts) {
   });
 }
 
-// Search action
+// Search posts
 function searchPosts() {
   const term = document.getElementById("searchInput").value.trim();
-  if (term.length === 0) return;
+  if (!term) return;
   fetchPosts(term);
 }
 
@@ -121,7 +119,6 @@ function searchPosts() {
 document.getElementById("hamburger").addEventListener("click", ()=>{
   document.getElementById("menu").classList.toggle("active");
 });
-
 </script>
 
 </body>
