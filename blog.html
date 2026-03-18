@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Blog - ANUWH OFFICIAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);min-height:100vh;color:white;overflow-x:hidden;}
+body::before{content:"";position:fixed;width:600px;height:600px;background:radial-gradient(circle,#00c6ff,transparent);top:-200px;left:-200px;filter:blur(120px);z-index:-1;animation:float 8s infinite alternate;}
+@keyframes float{0%{transform:translate(0,0);}100%{transform:translate(200px,200px);}}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);position:sticky;top:0;z-index:1000;}
+.logo{font-weight:800;font-size:20px;}
+.menu{display:flex;gap:25px;}
+.menu a{color:white;text-decoration:none;transition:0.3s;}
+.menu a:hover{color:#00c6ff;}
+.hamburger{display:none;flex-direction:column;cursor:pointer;}
+.hamburger span{height:3px;width:25px;background:white;margin:4px 0;}
+/* Search */
+.search-bar{display:flex;justify-content:center;margin:20px;}
+.search-bar input{width:70%;padding:12px;border:none;border-radius:8px;font-size:16px;}
+.search-bar button{padding:12px 20px;margin-left:10px;border:none;border-radius:8px;background:#00c6ff;color:black;font-weight:600;cursor:pointer;}
+/* Posts */
+.posts-container{display:flex;flex-wrap:wrap;justify-content:center;margin:40px 10px;gap:25px;}
+.post-card{background:rgba(255,255,255,0.05);border-radius:20px;padding:20px;width:300px;box-shadow:0 0 40px #00c6ff;transition:0.4s;text-align:left;}
+.post-card:hover{transform:scale(1.05);box-shadow:0 0 80px #00c6ff;}
+.post-card img{width:100%;border-radius:12px;margin-bottom:12px;}
+.post-card h2{font-size:18px;margin-bottom:8px;}
+.post-card p{font-size:14px;opacity:0.8;margin-bottom:10px;}
+.post-card a{display:inline-block;padding:8px 20px;background:#00c6ff;color:black;text-decoration:none;border-radius:8px;transition:0.3s;}
+.post-card a:hover{background:#00b0e0;}
+footer{text-align:center;padding:20px;background:rgba(255,255,255,0.05);margin-top:40px;}
+@media(max-width:768px){.menu{display:none;flex-direction:column;background:#111;padding:20px;position:absolute;right:20px;top:70px;}.menu.active{display:flex;}.hamburger{display:flex;}}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">DTZ ANUWH OFFICIAL</div>
+<div class="menu" id="menu">
+<a href="/">Home</a>
+<a href="/about.html">About</a>
+<a href="/projects.html">Projects</a>
+<a href="/contact.html">Contact</a>
+<a href="/freebots.html">Free Bots</a>
+<a href="/blog.html">Cyber Blog</a>
+</div>
+<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="search-bar">
+<input type="text" id="searchInput" placeholder="Search cyber tech posts...">
+<button onclick="searchPosts()">Search</button>
+</section>
+
+<section class="posts-container" id="postsContainer">
+<!-- Posts will load here -->
+</section>
+
+<footer>Designed and Developed by Anuga Senithu</footer>
+
+<script>
+
+// --- Your News API Key ---
+const API_KEY = "5f3d574cb131920c2aad991ab3e8ae50";
+
+// Default topics to load
+const DEFAULT_QUERY = "cyber OR tech OR hacker OR AI OR coding";
+
+// Load posts on page load
+document.addEventListener("DOMContentLoaded", () => {
+  fetchPosts(DEFAULT_QUERY);
+});
+
+// Fetch posts from GNews API
+async function fetchPosts(query) {
+  const container = document.getElementById("postsContainer");
+  container.innerHTML = `<h2 style="text-align:center;width:100%;">Loading Posts...</h2>`;
+  try {
+    const res = await fetch(
+      `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&lang=en&max=20&token=${API_KEY}`
+    );
+    const data = await res.json();
+    displayPosts(data.articles || []);
+  } catch (err) {
+    container.innerHTML = `<h2 style="text-align:center;width:100%;">Failed to load posts.</h2>`;
+    console.error(err);
+  }
+}
+
+// Display posts
+function displayPosts(posts) {
+  const container = document.getElementById("postsContainer");
+  container.innerHTML = "";
+  if (posts.length === 0) {
+    container.innerHTML = `<h2 style="text-align:center;width:100%;">No posts found.</h2>`;
+    return;
+  }
+  posts.forEach(post => {
+    const card = document.createElement("div");
+    card.className = "post-card";
+    card.innerHTML = `
+      ${post.image ? `<img src="${post.image}">` : ""}
+      <h2>${post.title}</h2>
+      <p>${post.description || ""}</p>
+      <a href="${post.url}" target="_blank">Read Full</a>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Search action
+function searchPosts() {
+  const term = document.getElementById("searchInput").value.trim();
+  if (term.length === 0) return;
+  fetchPosts(term);
+}
+
+// Hamburger menu
+document.getElementById("hamburger").addEventListener("click", ()=>{
+  document.getElementById("menu").classList.toggle("active");
+});
+
+</script>
+
+</body>
+</html>
